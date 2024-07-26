@@ -91,6 +91,29 @@ int main()
 int insertSortedLL(LinkedList *ll, int item)
 {
 	/* add your code here */
+	//링크드리스트 대가리 가져오기
+	ListNode *head = ll->head;
+	
+
+	int index = 0;
+
+	if(head == NULL){
+		return insertNode(ll, index, item);
+	}
+	else{
+		while(head){
+			if(head->item == item){
+				return -1;
+			}
+			else if(head->item > item){
+				return insertNode(ll, index, item);
+			}
+			head = head->next;
+			index++;
+		}
+		return insertNode(ll, index, item);
+	}
+	
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
