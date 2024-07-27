@@ -112,6 +112,22 @@ int main()
 
 void reverse(Queue *q)
 {
+	Stack s;
+	s.ll.head =NULL;
+	s.ll.size =0;
+	s.ll.tail=NULL;
+
+	while (q->ll.size > 0)
+	{
+		int item = dequeue(q);
+		push(&s, item); 
+	}
+	while (s.ll.size > 0)
+	{
+		int item = pop(&s);
+		enqueue(q, item); 
+	}
+	
 /* add your code here */
 }
 
