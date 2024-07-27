@@ -70,7 +70,6 @@ int main()
 			RecursiveReverse(&(ll.head)); // You need to code this function
 			printf("The resulting linked list after reversed the given linked list is: ");
 			printList(&ll);
-			removeAllItems(&ll);
 			break;
 		case 0:
 			removeAllItems(&ll);
@@ -87,6 +86,17 @@ int main()
 
 void RecursiveReverse(ListNode **ptrHead)
 {
+	ListNode* ptr = *ptrHead;
+	if(ptr==NULL) return;
+	ListNode* next_ptr = ptr->next;
+	if(next_ptr == NULL) return;
+	*ptrHead = next_ptr;
+	
+	RecursiveReverse(ptrHead);
+
+	next_ptr->next = ptr;
+	ptr->next = NULL;
+
 	/* add your code here */
 }
 
