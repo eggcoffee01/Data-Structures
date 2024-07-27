@@ -110,7 +110,7 @@ int isStackPairwiseConsecutive(Stack *s)
 		item2 = pop(s);
 		if(abs(item1-item2) != 1) return 0;
 	}
-
+	if (s->ll.size==1) return 0;
 	return 1;
 }
 
