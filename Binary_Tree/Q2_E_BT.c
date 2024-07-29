@@ -97,6 +97,16 @@ int main()
 int maxHeight(BTNode *node)
 
 {
+    //현재 노드가 없다면 -1을 반환
+    if (node == NULL) return -1;
+    
+    //현재 노드가 있다면 왼쪽노드 오른쪽 노드 인자로 재귀함수 호출
+    int l = maxHeight(node->left);
+    int r = maxHeight(node->right);
+
+    //왼쪽 오른쪽 중에 더 길이가 긴 노드들을 선택하여 리턴
+    if(l > r) return l+1;
+    return r+1;
     /* add your code here */
 }
 

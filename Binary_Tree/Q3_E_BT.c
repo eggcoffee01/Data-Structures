@@ -99,8 +99,20 @@ int main()
 //////////////////////////////////////////////////////////////////////////////////
 
 int countOneChildNodes(BTNode *node)
-
 {
+    //노드가 널이면 0을 리턴
+    if (node == NULL) return 0;
+    
+    //왼쪽 재귀 값 오른쪽 재귀 값
+    int left = countOneChildNodes(node->left);
+    int right = countOneChildNodes(node->right);
+    //왼쪽 오른쪽 중에 자식이 하나이면 left+right+1
+    if( (node->left == NULL && node->right != NULL) || (node->right == NULL && node->left != NULL)){
+        return left + right + 1; 
+    }
+    //왼쪽 오른쪽 둘다 자식이 있거나 둘다 없으면 return left+right
+    return left + right;
+    
     /* add your code here */
 }
 
